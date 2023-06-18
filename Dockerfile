@@ -18,3 +18,6 @@ EXPOSE 8502
 
 # Run app.py when the container launches
 ENTRYPOINT ["streamlit", "run", "app.py", "--server.port=8502", "--server.address=0.0.0.0"]
+
+# Tells Docker how to test a Streamlit container to check that it is still working. 
+HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
